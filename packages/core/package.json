@@ -1,0 +1,35 @@
+{
+  "name": "@js-sh/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.d.js",
+  "scripts": {
+    "prebuild": "rimraf dist/*",
+    "build": "tsc -p ./tsconfig.prod.json",
+    "test": "c8 ava",
+    "test:watch": "ava --watch",
+    "lint": "eslint --cache --ext=.ts ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-js-sh": "^0.0.0",
+    "rimraf": "^5.0.1",
+    "tsconfig": "^0.0.0"
+  },
+  "ava": {
+    "files": [
+      "src/**/*.test.ts",
+      "src/**/*.spec.ts",
+      "test/**/*.spec.ts"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "timeout": "30m"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "eslint-config-js-sh",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "eslint-config-tencent": "^1.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0"
+  }
+}
