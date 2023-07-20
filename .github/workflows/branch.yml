@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  buildAndTest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci -ws --include-workspace-root
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run test

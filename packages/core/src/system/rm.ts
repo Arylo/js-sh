@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { parsePath } from "../utils"
+import { parsePath } from '../utils'
 import logger from '../logger'
 
 function rmDir(p: string) {

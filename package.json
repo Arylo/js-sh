@@ -16,14 +16,8 @@
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
-    "@types/node": "^18.16.19",
-    "ava": "^5.3.1",
-    "c8": "^8.0.0",
-    "changesets": "^1.0.2",
-    "eslint": "^8.44.0",
-    "ts-node": "^10.9.1",
-    "turbo": "^1.9.9",
-    "typescript": "5.0"
+    "@types/node": "^14.18.53",
+    "eslint": "^8.45.0",
+    "turbo": "^1.9.9"
   }
 }
