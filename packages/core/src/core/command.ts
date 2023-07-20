@@ -25,12 +25,13 @@ function command(firstArg: string, ...args: string[]) {
 }
 
 export const $ = new Proxy(command, {
-  get(_, key, receiver) {
+  get(_, key) {
     const target = key in Function.prototype ? _ : getStore()
-    return Reflect.get(target, key, receiver)
+    return Reflect.get(target, key)
   },
-  set(_, key, newValue, receiver) {
+  set(_, key, newValue) {
     const target = key in Function.prototype ? _ : getStore()
-    return Reflect.set(target, key, newValue, receiver)
+    Reflect.set(target, key, newValue)
+    return true
   },
 }) as typeof command & Store
