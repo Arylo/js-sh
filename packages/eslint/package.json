@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "keywords": [],
-  "author": "",
+  "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "eslint-config-tencent": "^1.0.4"

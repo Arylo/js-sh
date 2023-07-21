@@ -10,7 +10,7 @@
     "lint": "eslint --cache --ext=.ts ."
   },
   "keywords": [],
-  "author": "",
+  "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^8.45.0",
