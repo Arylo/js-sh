@@ -1,5 +1,5 @@
 {
-  "name": "@js-sh/core",
+  "name": "@js-sh/utils",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -39,7 +39,6 @@
     "timeout": "30m"
   },
   "dependencies": {
-    "@js-sh/store": "^1.0.0",
-    "@js-sh/utils": "^1.0.0"
+    "@js-sh/store": "^1.0.0"
   }
 }

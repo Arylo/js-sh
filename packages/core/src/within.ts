@@ -1,5 +1,5 @@
-import logger from '../logger'
-import { getStore, run } from '../store'
+import { logger } from '@js-sh/utils'
+import { getStore, run } from '@js-sh/store'
 
 const indexes = []
 

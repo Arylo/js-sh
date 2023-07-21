@@ -1,6 +1,6 @@
 import childProcess from 'child_process'
-import { Store, getStore } from '../store'
-import logger from '../logger'
+import { Store, getStore } from '@js-sh/store'
+import { logger } from '@js-sh/utils'
 
 function command(firstArg: string, ...args: string[]) {
   const store = getStore()

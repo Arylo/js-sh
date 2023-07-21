@@ -1,4 +1,4 @@
-import logger from '../logger'
+import { logger } from '@js-sh/utils'
 
 export async function sleep(time: number) {
   logger.info(`sleep ${time}`)

@@ -1,6 +1,5 @@
 import fs from 'fs'
-import { parsePath } from '../utils'
-import logger from '../logger'
+import { parsePath, logger } from '@js-sh/utils'
 
 export function mkdir(p: string) {
   const folderPath = parsePath(p)

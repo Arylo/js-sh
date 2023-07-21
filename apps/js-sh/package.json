@@ -1,5 +1,5 @@
 {
-  "name": "@js-sh/core",
+  "name": "js-sh",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -14,7 +14,11 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@js-sh/core": "^1.0.0"
+  },
   "devDependencies": {
+    "@js-sh/system": "^1.0.0",
     "ava": "^5.3.1",
     "c8": "^8.0.0",
     "eslint": "^8.45.0",
@@ -37,9 +41,5 @@
       "ts-node/register"
     ],
     "timeout": "30m"
-  },
-  "dependencies": {
-    "@js-sh/store": "^1.0.0",
-    "@js-sh/utils": "^1.0.0"
   }
 }

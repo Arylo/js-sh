@@ -1,7 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { parsePath } from '../utils'
-import logger from '../logger'
+import { parsePath, logger } from '@js-sh/utils'
 
 function rmDir(p: string) {
   const filelist = fs.readdirSync(p)

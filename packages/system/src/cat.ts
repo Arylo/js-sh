@@ -1,6 +1,5 @@
 import fs from 'fs'
-import { parsePath } from '../utils'
-import logger from '../logger'
+import { parsePath, logger } from '@js-sh/utils'
 
 export function cat(p: string) {
   const filepath = parsePath(p)

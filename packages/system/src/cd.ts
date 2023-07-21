@@ -1,7 +1,6 @@
 import fs from 'fs'
-import { getStore } from '../store'
-import { parsePath } from '../utils'
-import logger from '../logger'
+import { getStore } from '@js-sh/store'
+import { parsePath, logger } from '@js-sh/utils'
 
 export function cd(p: string) {
   const store = getStore()

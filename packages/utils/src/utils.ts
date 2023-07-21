@@ -1,5 +1,5 @@
 import path from 'path'
-import { getStore } from './store'
+import { getStore } from '@js-sh/store'
 
 export function parsePath(p: string) {
   const store = getStore()

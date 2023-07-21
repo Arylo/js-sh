@@ -1,4 +1,4 @@
-import { getStore } from './store'
+import { getStore } from '@js-sh/store'
 
 const getPrefix = () => {
   const { cwd, zoneId: index } = getStore()

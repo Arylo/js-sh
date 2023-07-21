@@ -4,9 +4,6 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "scripts": {
-    "test": "exit 0"
-  },
   "keywords": [],
   "author": "",
   "license": "MIT",

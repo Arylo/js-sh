@@ -1,5 +1,5 @@
-import logger from '../logger'
-import { getStore } from '../store'
+import { logger } from '@js-sh/utils'
+import { getStore } from '@js-sh/store'
 
 export function pwd() {
   const store = getStore()
