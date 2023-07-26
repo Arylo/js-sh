@@ -15,6 +15,7 @@
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@js-sh/core": "^1.0.0",
     "ava": "^5.3.1",
     "c8": "^8.0.0",

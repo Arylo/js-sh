@@ -18,6 +18,7 @@ function rmDir(p: string) {
 
 export function rm(p: string) {
   const filePath = parsePath(p)
+  logger.info(`rm -rf ${p}`)
   if (!fs.existsSync(filePath)) {
     return
   }
@@ -27,6 +28,4 @@ export function rm(p: string) {
   } else if (stat.isFile()) {
     fs.rmSync(filePath)
   }
-  logger.info(`rm -rf ${p}`)
-  fs.rmdirSync(p)
 }

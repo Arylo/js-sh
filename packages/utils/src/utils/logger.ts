@@ -11,7 +11,7 @@ const getPrefix = () => {
   return str.join('')
 }
 
-export default {
+export const logger = {
   info(...args: any[]) {
     const { verbose } = getStore()
     verbose && console.log(getPrefix(), ...args)

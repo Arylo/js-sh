@@ -1,9 +1,12 @@
-import * as utils from './utils'
-import logger from './logger'
+import { parsePath } from './utils/parsePath'
+import { logger } from './utils/logger'
+import { notification } from './utils/notification'
 
-export * from './utils'
-export { default as logger } from './logger'
+export { parsePath } from './utils/parsePath'
+export { notification } from './utils/notification'
+export { logger } from './utils/logger'
 export default {
   logger,
-  ...utils,
+  notification,
+  parsePath,
 }

@@ -23,3 +23,5 @@ export function getStore() {
 }
 
 export const run: typeof storage.run = (store, callback, ...args) => storage.run(store, callback, ...args)
+
+export const runNext = <R>(callback: (...args: any[]) => R, ...args: any[]) => run({ ...getStore() }, callback, ...args)
