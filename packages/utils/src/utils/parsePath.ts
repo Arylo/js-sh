@@ -6,5 +6,5 @@ export function parsePath(p: string) {
   if (path.isAbsolute(p)) {
     return p
   }
-  return path.join(store.cwd, p)
+  return path.resolve(store.cwd, p)
 }

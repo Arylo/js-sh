@@ -41,6 +41,7 @@
     "timeout": "30m"
   },
   "dependencies": {
-    "@js-sh/store": "^1.0.0"
+    "@js-sh/store": "^1.0.0",
+    "glob": "^10.3.3"
   }
 }

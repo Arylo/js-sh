@@ -22,6 +22,7 @@ export function getStore() {
   return storage.getStore() || defaults
 }
 
-export const run: typeof storage.run = (store, callback, ...args) => storage.run(store, callback, ...args)
+type RunFn = <R>(store: Partial<Store>, callback: (...args: any[]) => R, ...args: any[]) => R
+export const run: RunFn = (store, callback, ...args) => storage.run({ ...getStore(), ...store }, callback, ...args)
 
-export const runNext = <R>(callback: (...args: any[]) => R, ...args: any[]) => run({ ...getStore() }, callback, ...args)
+export const runNext = <R>(callback: (...args: any[]) => R, ...args: any[]) => run({ }, callback, ...args)

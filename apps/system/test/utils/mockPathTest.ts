@@ -8,15 +8,14 @@ import { rimrafSync } from 'rimraf'
 const test = ava as TestFn<{ testPath: string }>
 
 export const mockPathTest = ({ serial = false } = {}) => {
-  const testFolderName = faker.word.sample()
-  const testPath = path.resolve(os.tmpdir(), testFolderName)
-
   const paths = [
     'a/aa/aaa/aaaa.txt',
     'b/bb/bbb/bbbb.txt',
     'c/cc/ccc/cccc.txt',
   ];
   (serial ? test.serial : test).beforeEach((t) => {
+    const testFolderName = faker.word.sample()
+    const testPath = path.resolve(os.tmpdir(), testFolderName)
     fs.existsSync(testPath) && rimrafSync(testPath)
     paths.forEach((p) => {
       const filepath = path.resolve(testPath, p)
@@ -25,8 +24,8 @@ export const mockPathTest = ({ serial = false } = {}) => {
     })
     t.context.testPath = testPath
   });
-  (serial ? test.serial : test).afterEach(() => {
-    rimrafSync(testPath)
+  (serial ? test.serial : test).afterEach((t) => {
+    rimrafSync(t.context.testPath)
   })
   return test
 }

@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^14.18.53",
+    "c8": "^8.0.1",
     "eslint": "^8.45.0",
     "turbo": "^1.9.9"
   }
