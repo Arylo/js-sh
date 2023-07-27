@@ -5,5 +5,5 @@ import { parsePath } from './parsePath'
 export const parseGlobPath = (p: string) => {
   const store = getStore()
   return globSync(p, { cwd: store.cwd })
-    .map((p) => parsePath(p))
+    .map(p => parsePath(p))
 }
