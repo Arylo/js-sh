@@ -9,7 +9,7 @@ const test = ava as TestFn<{ testPath: string }>
 
 export const mockPathTest = ({ serial = false } = {}) => {
   const testFolderName = faker.word.sample()
-  const testPath = path.resolve(os.tmpdir(), testFolderName);
+  const testPath = path.resolve(os.tmpdir(), testFolderName)
 
   const paths = [
     'a/aa/aaa/aaaa.txt',
@@ -18,14 +18,14 @@ export const mockPathTest = ({ serial = false } = {}) => {
   ];
   (serial ? test.serial : test).beforeEach((t) => {
     fs.existsSync(testPath) && rimrafSync(testPath)
-    paths.forEach(p => {
+    paths.forEach((p) => {
       const filepath = path.resolve(testPath, p)
       fs.mkdirSync(path.dirname(filepath), { recursive: true })
       fs.writeFileSync(filepath, path.basename(filepath), 'utf-8')
     })
     t.context.testPath = testPath
   });
-  (serial ? test.serial : test).afterEach((t) => {
+  (serial ? test.serial : test).afterEach(() => {
     rimrafSync(testPath)
   })
   return test
