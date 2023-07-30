@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import { mockPathTest } from '../test/utils/mockPathTest'
+import { mockPathTest } from '@js-sh/test-utils'
 import { mkdir } from './mkdir'
 
 const test = mockPathTest()

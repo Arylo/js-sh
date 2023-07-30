@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "./tsconfig.json",
+    "tsconfig/tsconfig.prod",
+  ],
+  "exclude": [
+    "test/**",
+    "bin/**",
+    "etc/**",
+    "**/*.spec.ts",
+    "**/*.e2e.ts",
+    "**/*.test.ts"
+  ]
+}

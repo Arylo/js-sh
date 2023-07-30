@@ -1,5 +1,5 @@
 import test from 'ava'
-import curModule from './index'
+import * as curModule from './index'
 import * as coreModule from '@js-sh/core'
 import * as sysModule from '@js-sh/system'
 

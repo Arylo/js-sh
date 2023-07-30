@@ -1,0 +1,21 @@
+{
+  "all": true,
+  "reporter": [
+    "text",
+    "clover",
+    "cobertura",
+    "json-summary",
+    "json",
+    "lcov"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "**/*.spec.ts",
+    "**/*.e2e.ts",
+    "**/*.test.ts"
+  ]
+}
