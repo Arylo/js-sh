@@ -1,6 +1,6 @@
 {
   "name": "@js-sh/utils",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,7 @@
     "timeout": "30m"
   },
   "dependencies": {
-    "@js-sh/store": "^1.0.0",
+    "@js-sh/store": "^0.0.1",
     "glob": "^10.3.3"
   }
 }

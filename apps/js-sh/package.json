@@ -1,6 +1,6 @@
 {
-  "name": "js-sh",
-  "version": "1.0.0",
+  "name": "@js-sh/js-sh",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,10 +15,10 @@
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@js-sh/core": "^1.0.0"
+    "@js-sh/core": "^0.0.1",
+    "@js-sh/system": "^0.0.1"
   },
   "devDependencies": {
-    "@js-sh/system": "^1.0.0",
     "ava": "^5.3.1",
     "c8": "^8.0.0",
     "eslint": "^8.45.0",

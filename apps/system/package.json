@@ -1,6 +1,6 @@
 {
   "name": "@js-sh/system",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,9 +14,13 @@
   "keywords": [],
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "@js-sh/core": "^0.0.1",
+    "@js-sh/store": "^0.0.1",
+    "@js-sh/utils": "^0.0.1"
+  },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
-    "@js-sh/core": "^1.0.0",
     "@js-sh/test-utils": "^0.0.0",
     "ava": "^5.3.1",
     "c8": "^8.0.0",
@@ -40,9 +44,5 @@
       "ts-node/register"
     ],
     "timeout": "30m"
-  },
-  "dependencies": {
-    "@js-sh/store": "^1.0.0",
-    "@js-sh/utils": "^1.0.0"
   }
 }

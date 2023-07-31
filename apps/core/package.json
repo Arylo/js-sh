@@ -1,6 +1,6 @@
 {
   "name": "@js-sh/core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,6 +14,10 @@
   "keywords": [],
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "@js-sh/store": "^0.0.1",
+    "@js-sh/utils": "^0.0.1"
+  },
   "devDependencies": {
     "@types/sinon": "^10.0.15",
     "ava": "^5.3.1",
@@ -39,9 +43,5 @@
       "ts-node/register"
     ],
     "timeout": "30m"
-  },
-  "dependencies": {
-    "@js-sh/store": "^1.0.0",
-    "@js-sh/utils": "^1.0.0"
   }
 }
