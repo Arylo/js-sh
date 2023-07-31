@@ -1,6 +1,6 @@
 import path from 'path'
 import { mockPathTest } from '@js-sh/test-utils'
-import { cat } from './cat'
+import { cat } from './index'
 
 const test = mockPathTest()
 

@@ -6,24 +6,24 @@ import { faker } from '@faker-js/faker'
 import mkdirp from 'make-dir'
 import { rimrafSync } from 'rimraf'
 
-const test = ava as TestFn<{ testPath: string }>
-
+const [START, END] = ['a', 'f']
 const DEEP = 3
 
-const rangs = ['a', 'c']
-  .map(w => w.charCodeAt(0))
-  .reduce<string[]>((list, code, index, rangs) => {
-    if (index === 0) return list
-    for (let i = rangs[0]; i <= rangs[1]; i++) {
-      list.push(String.fromCharCode(i))
-    }
-    return list
-  }, [])
+const rangs = [START, END].reduce<string[]>((list, _, index, rangs) => {
+  if (index === 0) return list
+  const [start, end] = [rangs[0].charCodeAt(0), rangs[1].charCodeAt(0)]
+  for (let i = start; i <= end; i++) {
+    list.push(String.fromCharCode(i))
+  }
+  return list
+}, [])
 
 const genFilePaths = (curPath = '', curDeep = 1) => {
   if (curDeep > DEEP) return [curPath]
   let paths = rangs.reduce<string[]>((list, word) => {
-    const newName = Array(curDeep).fill(word).join('')
+    const newName = Array(curDeep)
+      .fill(word)
+      .join('')
     const newPath = path.join(curPath, newName)
     list.push(...genFilePaths(newPath, curDeep + 1))
     return list
@@ -36,6 +36,7 @@ const genFilePaths = (curPath = '', curDeep = 1) => {
       const curPath = ps.slice(0, index + 1)
       list.push(
         path.join(...curPath, `${filename}.txt`),
+        path.join(...curPath, `${filename}.json`),
       )
     })
     return list
@@ -44,21 +45,32 @@ const genFilePaths = (curPath = '', curDeep = 1) => {
   return [...new Set(paths)]
 }
 
-export const mockPathTest = ({ serial = false } = {}) => {
+const test = ava as TestFn<{ testPath: string }>
+
+export const mockPathTest = ({ serial = false, once = false } = {}) => {
   const paths = genFilePaths();
-  (serial ? test.serial : test).beforeEach((t) => {
+  ((serial ? test.serial : test)[once ? 'before' : 'beforeEach'])((t) => {
     const testFolderName = faker.word.sample()
     const testPath = path.resolve(os.tmpdir(), testFolderName)
     fs.existsSync(testPath) && rimrafSync(testPath)
     paths.forEach((p) => {
       const filepath = path.resolve(testPath, p)
+      const filename = path.basename(filepath)
       mkdirp.sync(path.dirname(filepath))
-      fs.writeFileSync(filepath, path.basename(filepath), 'utf-8')
+      const extname = path.extname(filepath)
+      switch (extname) {
+        case '.txt':
+          fs.writeFileSync(filepath, filename, 'utf-8')
+          break
+        case '.json':
+          fs.writeFileSync(filepath, JSON.stringify({ name: filename }), 'utf-8')
+          break
+      }
     })
     t.context.testPath = testPath
   });
-  (serial ? test.serial : test).afterEach((t) => {
-    rimrafSync(t.context.testPath)
+  ((serial ? test.serial : test)[once ? 'after' : 'afterEach'])((t) => {
+    fs.existsSync(t.context.testPath) && rimrafSync(t.context.testPath)
   })
   return test
 }

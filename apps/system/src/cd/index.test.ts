@@ -1,8 +1,8 @@
 import os from 'os'
 import test from 'ava'
-import { cd } from './cd'
 import { within } from '@js-sh/core'
 import { getStore } from '@js-sh/store'
+import { cd } from './index'
 
 test('should cd other path', (t) => {
   const store = getStore()

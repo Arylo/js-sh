@@ -1,5 +1,5 @@
 import test from 'ava'
-import { sleep } from './sleep'
+import { sleep } from './index'
 
 test('should wait 1s', async (t) => {
   const startAt = Date.now()

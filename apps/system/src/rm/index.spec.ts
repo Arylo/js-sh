@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import { mockPathTest } from '@js-sh/test-utils'
-import { rm } from './rm'
+import { rm } from './index'
 import { run } from '@js-sh/store'
 
 const test = mockPathTest({ serial: true })
