@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { cd, rm, mkdir, pwd, cp } = require('../apps/js-sh')
+const { cd, rm, mkdir, pwd, cp, $, echo } = require('../apps/js-sh')
 
 const CACHE_FOLDER = '.nyc_output'
 const WORKSPACES = ['apps', 'packages']
@@ -20,3 +20,6 @@ WORKSPACES.forEach((w) => {
     cp(`${w}/${item}/coverage/coverage-final.json`, `${CACHE_FOLDER}/${projectName}.json`)
   })
 })
+
+const { stdout } = $('npx nyc report')
+console.log(stdout)
