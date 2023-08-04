@@ -6,7 +6,8 @@
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "posttest": "node etc/mergeTestReporters.js"
   },
   "workspaces": [
     "apps/*",
