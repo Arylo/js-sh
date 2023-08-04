@@ -1,10 +1,10 @@
 import { notification } from '@js-sh/utils'
 import { run } from '@js-sh/store'
 
-const indexes = []
+let latestZoneId = 0
 
 export function within(callback: () => any) {
-  const nextZoneId = indexes.length + 1
+  const nextZoneId = latestZoneId++
   notification(`[[Enter Zone ID ${nextZoneId}]]`)
   return run({ zoneId: nextZoneId }, callback)
 }
