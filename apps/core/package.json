@@ -19,6 +19,7 @@
     "@js-sh/utils": "^0.0.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@types/sinon": "^10.0.15",
     "ava": "^5.3.1",
     "c8": "^8.0.0",
