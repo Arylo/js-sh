@@ -2,39 +2,21 @@
 
 ## RoadMap
 
-### Core
+> &#x2611; Released &#x2610; Pending to release
 
-- [x] command
-- [x] within
-- [x] retry
-- [ ] spinner
-- [ ] minimist
-- [ ] question
-
-### System
-
-- [x] cat
-- [x] cd
-- [x] cp
-- [x] echo
-- [x] ls
-- [x] mkdir
-- [x] mv
-- [x] pwd
-- [x] rm
-- [x] sleep
-- [ ] exit
-- [ ] open
-- [ ] readFile
-- [ ] writeFile
-
-### Program
-
-- [ ] fetch
-- [ ] download
-- [ ] readEnv
-- [ ] writeEnv
-- [ ] readJSON
-- [ ] writeJSON
-- [ ] readYAML
-- [ ] writeYAML
+|Core             |System            |Program           |
+|---              |---               |---               |
+|&#x2611; command |&#x2611; cat      |&#x2610; open     |
+|&#x2611; within  |&#x2611; cd       |&#x2610; fetch    |
+|&#x2611; retry   |&#x2611; cp       |&#x2610; download |
+|&#x2610; spinner |&#x2611; echo     |&#x2610; readEnv  |
+|&#x2610; minimist|&#x2611; ls       |&#x2610; writeEnv |
+|&#x2610; question|&#x2611; mkdir    |&#x2610; readJSON |
+|                 |&#x2611; mv       |&#x2610; writeJSON|
+|                 |&#x2611; pwd      |&#x2610; readYAML |
+|                 |&#x2611; rm       |&#x2610; writeYAML|
+|                 |&#x2611; sleep    |                  |
+|                 |&#x2610; exit     |                  |
+|                 |&#x2610; readFile |                  |
+|                 |&#x2610; writeFile|                  |
+|                 |                  |                  |
