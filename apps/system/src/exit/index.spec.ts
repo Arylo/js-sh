@@ -1,6 +1,5 @@
 import test from 'ava'
 import sinon from 'sinon'
-import * as utils from '@js-sh/utils'
 import { exit } from './index'
 
 test.beforeEach(() => {

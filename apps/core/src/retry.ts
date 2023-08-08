@@ -5,7 +5,7 @@ interface IRetryOptions<F extends Function> {
   callback: F,
 }
 
-async function _retry<F extends Function>(options: IRetryOptions<F>) {
+async function retryHandler<F extends Function>(options: IRetryOptions<F>) {
   const {
     time,
     index = 1,
@@ -15,10 +15,10 @@ async function _retry<F extends Function>(options: IRetryOptions<F>) {
     return await callback()
   } catch (e) {
     if (time > index) {
-      return _retry({ ...options, index: index + 1 })
+      return retryHandler({ ...options, index: index + 1 })
     }
     throw e
   }
 }
 
-export const retry = <F extends Function>(time: number, callback: F) => _retry({ time, callback })
+export const retry = <F extends Function>(time: number, callback: F) => retryHandler({ time, callback })
