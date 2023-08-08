@@ -194,3 +194,11 @@ import { sleep } from '@js-sh/js-sh'
 
 await sleep(50)
 ```
+
+### exit(code: number, msg?: string)
+
+```javascript
+import { exit } from '@js-sh/js-sh'
+
+exit(0, 'Bye~')
+```

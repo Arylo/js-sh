@@ -16,7 +16,7 @@
 |                 |&#x2611; pwd      |&#x2610; readYAML |
 |                 |&#x2611; rm       |&#x2610; writeYAML|
 |                 |&#x2611; sleep    |                  |
-|                 |&#x2610; exit     |                  |
+|                 |&#x2611; exit     |                  |
 |                 |&#x2610; readFile |                  |
 |                 |&#x2610; writeFile|                  |
 |                 |                  |                  |
