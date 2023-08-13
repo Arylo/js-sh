@@ -202,3 +202,19 @@ import { exit } from '@js-sh/js-sh'
 
 exit(0, 'Bye~')
 ```
+
+### readFile(filepath: string, encoding?: string)
+
+```javascript
+import { readFile } from '@js-sh/js-sh'
+
+readFile('foo.txt', 'utf-8')
+```
+
+### writeFile(filepath: string, data: any, encoding?: string)
+
+```javascript
+import { writeFile } from '@js-sh/js-sh'
+
+writeFile('foo.txt', '["Test"]', 'utf-8')
+```

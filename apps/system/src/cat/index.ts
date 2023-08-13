@@ -1,5 +1,5 @@
-import fs from 'fs'
 import { logger, parseGlobPath } from '@js-sh/utils'
+import { readFile } from '../readFile'
 
 export function cat(p: string) {
   logger.info(`cat ${p}`)
@@ -8,9 +8,7 @@ export function cat(p: string) {
     return logger.error(`${p} is not exist`)
   }
   filepaths.forEach((filepath) => {
-    if (!fs.statSync(filepath).isFile()) {
-      return logger.error(`${filepath} is not a file`)
-    }
-    console.log(fs.readFileSync(filepath, 'utf-8'))
+    const content = readFile(filepath)
+    console.log(content)
   })
 }

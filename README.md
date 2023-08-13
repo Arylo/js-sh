@@ -17,6 +17,6 @@
 |                 |&#x2611; rm       |&#x2610; writeYAML|
 |                 |&#x2611; sleep    |                  |
 |                 |&#x2611; exit     |                  |
-|                 |&#x2610; readFile |                  |
-|                 |&#x2610; writeFile|                  |
+|                 |&#x2611; readFile |                  |
+|                 |&#x2611; writeFile|                  |
 |                 |                  |                  |
