@@ -1,5 +1,16 @@
 # @js-sh/core
 
+## 0.0.3
+
+### Patch Changes
+
+- 80506a5: chore: update npm scripts and limit the files to publish
+- 36413af: feat: add the function of the retry and the feature of font color
+- Updated dependencies [80506a5]
+- Updated dependencies [36413af]
+  - @js-sh/store@0.0.2
+  - @js-sh/utils@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes

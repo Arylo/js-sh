@@ -1,6 +1,6 @@
 {
   "name": "@js-sh/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,8 +19,8 @@
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@js-sh/store": "^0.0.1",
-    "@js-sh/utils": "^0.0.1"
+    "@js-sh/store": "^0.0.2",
+    "@js-sh/utils": "^0.0.2"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
