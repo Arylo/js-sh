@@ -1,11 +1,15 @@
 {
   "name": "@js-sh/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "prebuild": "rimraf dist/*",
+    "prepublishOnly": "rimraf dist/*",
+    "prepack": "npm run build",
     "build": "tsc -p ./tsconfig.prod.json",
     "test": "c8 ava",
     "test:watch": "ava --watch",
@@ -15,10 +19,11 @@
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@js-sh/store": "^0.0.1",
-    "@js-sh/utils": "^0.0.1"
+    "@js-sh/store": "^0.0.2",
+    "@js-sh/utils": "^0.0.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@types/sinon": "^10.0.15",
     "ava": "^5.3.1",
     "c8": "^8.0.0",

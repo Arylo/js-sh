@@ -19,7 +19,7 @@ test.serial('should return file/folder list in the current folder  if the param 
     'd/',
     'e/',
     'f/',
-  ].map((name) => `${t.context.testPath}/${name}`)
+  ].map(name => `${t.context.testPath}/${name}`)
   run({ cwd: t.context.testPath }, () => {
     const result = ls()
     t.deepEqual(target, result)
@@ -36,7 +36,7 @@ test.serial('should return file/folder list if the param is foldername', (t) => 
     'dd/',
     'ee/',
     'ff/',
-  ].map((name) => `${t.context.testPath}/a/${name}`)
+  ].map(name => `${t.context.testPath}/a/${name}`)
   run({ cwd: t.context.testPath }, () => {
     const result = ls('a')
     t.deepEqual(target, result)
@@ -47,7 +47,7 @@ test.serial('should return file list if the param is glob', (t) => {
   const target = [
     'aa.json',
     'aa.txt',
-  ].map((name) => `${t.context.testPath}/a/${name}`)
+  ].map(name => `${t.context.testPath}/a/${name}`)
   run({ cwd: t.context.testPath }, () => {
     const result = ls('a/aa.*')
     t.deepEqual(target, result)
@@ -59,11 +59,11 @@ test.serial('should return file/folder list if the param is glob', (t) => {
     ...[
       'aaaa.json',
       'aaaa.txt',
-    ].map((name) => `${t.context.testPath}/a/aa/aaa/${name}`),
+    ].map(name => `${t.context.testPath}/a/aa/aaa/${name}`),
     ...[
       'bbbb.json',
       'bbbb.txt',
-    ].map((name) => `${t.context.testPath}/a/aa/bbb/${name}`),
+    ].map(name => `${t.context.testPath}/a/aa/bbb/${name}`),
   ]
   run({ cwd: t.context.testPath }, () => {
     const result = ls('a/aa/{aaa,bbb}')

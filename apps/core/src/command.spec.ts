@@ -25,3 +25,9 @@ test('should return stderr in the fail command', (t) => {
   t.deepEqual(stdout, '')
   t.true(!!stderr)
 })
+
+const chalkMethods = ['green', 'gray', 'blue']
+chalkMethods.forEach(method => test(`should return chalk ${method}`, (t) => {
+  const fn = ($.chalk as any)[method]
+  t.is('function', typeof fn)
+}))

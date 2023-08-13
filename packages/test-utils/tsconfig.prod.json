@@ -4,6 +4,7 @@
     "tsconfig/tsconfig.prod",
   ],
   "exclude": [
+    "dist/**",
     "test/**",
     "bin/**",
     "etc/**",
