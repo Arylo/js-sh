@@ -4,10 +4,12 @@
   "description": "",
   "private": true,
   "scripts": {
+    "clean": "turbo run clean",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "posttest": "node etc/mergeTestReporters.js"
+    "posttest": "node etc/mergeTestReporters.js",
+    "publish-packages": "npm run clean && npm run build && changeset publish"
   },
   "workspaces": [
     "apps/*",

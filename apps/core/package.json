@@ -8,8 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "prepublishOnly": "rimraf dist/*",
-    "prepack": "npm run build",
+    "clean": "rimraf dist/*",
     "build": "tsc -p ./tsconfig.prod.json",
     "test": "c8 ava",
     "test:watch": "ava --watch",

@@ -8,8 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "prepublishOnly": "rimraf dist/*",
-    "prepack": "npm run build",
+    "clean": "rimraf dist/*",
     "build": "tsc -p ./tsconfig.prod.json",
     "lint": "eslint --cache --ext=.ts ."
   },
