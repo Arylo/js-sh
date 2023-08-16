@@ -1,5 +1,14 @@
 # js-sh
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [109f944]
+- Updated dependencies [e9ccc64]
+- Updated dependencies [0e3f719]
+  - @js-sh/system@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
