@@ -2,7 +2,13 @@
   "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [],
+  "fixed": [
+    [
+      "@js-sh/js-sh",
+      "@js-sh/core",
+      "@js-sh/system"
+    ]
+  ],
   "linked": [],
   "access": "public",
   "baseBranch": "master",
