@@ -39,3 +39,19 @@ test.serial('should move file into other folder', (t) => {
     t.deepEqual(targetContent, resultContent)
   })
 })
+
+test.serial('should sync the time from the source file', async (t) => {
+  await run({ cwd: t.context.testPath }, async () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const targetStat = fs.statSync(targetPath)
+    const resultPath = path.resolve(t.context.testPath, 'abc.txt')
+
+    mv('a/aa.txt', 'abc.txt')
+
+    const resultStat = fs.statSync(resultPath)
+    t.deepEqual(
+      [resultStat.atime, resultStat.atimeMs, resultStat.mtime, resultStat.mtimeMs],
+      [targetStat.atime, targetStat.atimeMs, targetStat.mtime, targetStat.mtimeMs],
+    )
+  })
+})

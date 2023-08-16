@@ -7,8 +7,7 @@ import { analysisSourceNTargetPath } from '../utils'
 const moveFile = (sourcePath: string, targetPath: string) => {
   if (sourcePath === targetPath) return
   fs.mkdirSync(path.dirname(targetPath), { recursive: true })
-  fs.copyFileSync(sourcePath, targetPath)
-  fs.rmSync(sourcePath)
+  fs.renameSync(sourcePath, targetPath)
 }
 
 const moveFolder = (sourcePath: string, targetPath: string) => {
