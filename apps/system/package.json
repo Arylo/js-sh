@@ -20,7 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "@js-sh/store": "^0.0.2",
-    "@js-sh/utils": "^0.0.2"
+    "@js-sh/utils": "^0.0.2",
+    "rimraf": "^5.0.1"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
@@ -30,7 +31,6 @@
     "c8": "^8.0.0",
     "eslint": "^8.45.0",
     "eslint-config-js-sh": "^0.0.0",
-    "rimraf": "^5.0.1",
     "sinon": "^15.2.0",
     "ts-node": "^10.9.1",
     "tsconfig": "^0.0.0",
