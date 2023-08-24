@@ -1,10 +1,7 @@
-on:
-  push:
-    tags:
-      - **
+on: push
 
 jobs:
-  BuildAndTest:
+  TagTest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,7 +13,4 @@ jobs:
           node-version: ${{ matrix.version }}
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci -ws --include-workspace-root
-      - run: npm run lint
-      - run: npm run build
-      - run: npm run test
+      - run: cd example && npm i && node .

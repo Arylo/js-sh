@@ -11,7 +11,6 @@ npm i @js-sh/js-sh
 ### Example
 
 ```javascript
-import path from 'path'
 import { ls, cp, mkdir, rm } from '@js-sh/js-sh'
 
 const CACHE_FOLDER = '.nyc_output'

@@ -13,6 +13,7 @@
     "publish-packages": "npm run clean && npm run build && changeset publish"
   },
   "workspaces": [
+    "example",
     "apps/*",
     "packages/*"
   ],
