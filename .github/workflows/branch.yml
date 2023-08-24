@@ -6,6 +6,9 @@ jobs:
     strategy:
       matrix:
         version: [14, 16, 18, 20]
+        include:
+          - version: 16
+            npm: 8
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -13,6 +16,9 @@ jobs:
           node-version: ${{ matrix.version }}
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+      - name: Upgrade NPM
+        if: ${{ matrix.npm }}
+        run: npm i -g npm@${{ matrix.npm }}
       - run: npm ci -ws --include-workspace-root
       - run: npm run lint
       - run: npm run build

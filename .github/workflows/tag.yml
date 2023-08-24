@@ -1,7 +1,8 @@
 on: 
   push:
-    tags:
-      - '*@*'
+    paths:
+      - '**/package.json'
+      - '**/package-lock.json'
 
 jobs:
   TagTest:
@@ -14,7 +15,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
-          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
       - run: rm -f package.json package-lock.json
       - run: cd example && npm i && node .
