@@ -16,4 +16,5 @@ jobs:
           node-version: ${{ matrix.version }}
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+      - run: rm -f package.json package-lock.json
       - run: cd example && npm i && node .
