@@ -1,7 +1,7 @@
 import childProcess from 'child_process'
 import { Store, getStore } from '@js-sh/store'
 import { logger } from '@js-sh/utils'
-import chalk, { Chalk } from 'chalk'
+import chalk, { ChalkInstance } from 'chalk'
 
 function command(command: string) {
   const store = getStore()
@@ -32,4 +32,4 @@ export const $ = new Proxy(command, {
     Reflect.set(target, key, newValue)
     return true
   },
-}) as typeof command & Store & { readonly chalk: Chalk }
+}) as typeof command & Store & { readonly chalk: ChalkInstance }

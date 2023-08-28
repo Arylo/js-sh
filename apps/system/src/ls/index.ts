@@ -31,7 +31,7 @@ export const ls = (...paths: string[]) => {
     }
     return list
   }, []).sort()
-  list.forEach(item => {
+  list.forEach((item) => {
     const p = item.startsWith(store.cwd) ? item.replace(`${store.cwd}${path.sep}`, '') : item
     notification(p)
   })
