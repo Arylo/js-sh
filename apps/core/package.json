@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "@js-sh/store": "^0.0.2",
-    "@js-sh/utils": "^0.0.2"
+    "@js-sh/utils": "^0.0.2",
+    "chalk": "4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
