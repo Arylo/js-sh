@@ -1,13 +1,15 @@
 {
   "name": "example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.mjs",
   "private": true,
-  "keywords": ["example"],
+  "keywords": [
+    "example"
+  ],
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@js-sh/js-sh": "^0.0.4"
+    "@js-sh/js-sh": "^0.0.5"
   }
 }

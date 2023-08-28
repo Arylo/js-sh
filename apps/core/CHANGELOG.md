@@ -1,5 +1,11 @@
 # @js-sh/core
 
+## 0.0.5
+
+### Patch Changes
+
+- 64f4fe0: fix(core): fixed lost module
+
 ## 0.0.3
 
 ### Patch Changes
