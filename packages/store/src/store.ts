@@ -22,7 +22,12 @@ export function getStore() {
   return storage.getStore() || defaults
 }
 
-type RunFn = <R>(store: Partial<Store>, callback: (...args: any[]) => R, ...args: any[]) => R
-export const run: RunFn = (store, callback, ...args) => storage.run({ ...getStore(), ...store }, callback, ...args)
+export function run<S extends object = object, R = any>(
+  store: Partial<Store & S>,
+  callback: (...args: any[]) => R,
+  ...args: any[]
+) {
+  return storage.run({ ...getStore(), ...store }, callback, ...args)
+}
 
 export const runNext = <R>(callback: (...args: any[]) => R, ...args: any[]) => run({ }, callback, ...args)
