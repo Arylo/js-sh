@@ -20,7 +20,7 @@ mkdir(CACHE_FOLDER)
 
 ls('./apps/*/coverage/coverage-final.json')
   .forEach((p) => {
-    cp(p, `${CACHE_FOLDER}/`)
+    cp.force(p, `${CACHE_FOLDER}/`)
   })
 ```
 
@@ -74,7 +74,7 @@ import { cd } from '@js-sh/js-sh'
 cd('./apps')
 ```
 
-### cp(source: string, target: string)
+### cp(source: string, target: string, options?: { force: boolean })
 
 #### Copy File to File
 
@@ -108,6 +108,10 @@ import { cp } from '@js-sh/js-sh'
 cp('./sourceFolder', './targetFolder/')
 ```
 
+### cp.force(source: string, target: string)
+
+See `cp` method
+
 ### echo(content: string)
 
 ```javascript
@@ -134,7 +138,7 @@ import { mkdir } from '@js-sh/js-sh'
 mkdir('./newFolder')
 ```
 
-### mv(source: string, target: string)
+### mv(source: string, target: string, options?: { force: boolean })
 
 #### Move File to File
 
@@ -167,6 +171,10 @@ import { mv } from '@js-sh/js-sh'
 
 mv('./sourceFolder', './targetFolder/')
 ```
+
+### mv.force(source: string, target: string)
+
+See `mv` method
 
 ### pwd()
 

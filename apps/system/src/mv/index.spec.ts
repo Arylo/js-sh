@@ -55,3 +55,57 @@ test.serial('should sync the time from the source file', async (t) => {
     )
   })
 })
+
+test.serial('should force move file to other file with default options', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'a/aa.json')
+
+    const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const oldContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, oldContent)
+
+    mv('a/aa.txt', 'a/aa.json', { force: true })
+
+    const result = fs.existsSync(targetPath)
+    t.false(result)
+    const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    t.deepEqual(targetContent, resultContent)
+  })
+})
+
+test.serial('should force move file to other file', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'a/aa.json')
+
+    const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const oldContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, oldContent)
+
+    mv('a/aa.txt', 'a/aa.json', { force: true })
+
+    const result = fs.existsSync(targetPath)
+    t.false(result)
+    const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    t.deepEqual(targetContent, resultContent)
+  })
+})
+
+test.serial('should force move file to other file using force modifier', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'a/aa.json')
+
+    const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const oldContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, oldContent)
+
+    mv.force('a/aa.txt', 'a/aa.json')
+
+    const result = fs.existsSync(targetPath)
+    t.false(result)
+    const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    t.deepEqual(targetContent, resultContent)
+  })
+})

@@ -18,7 +18,7 @@ WORKSPACES.forEach((w) => {
         const projectName = require(ls('package.json')[0])
           .name
           .replace(/[@\/]/g, '__')
-        cp(`coverage/coverage-final.json`, `${ROOT_PATH}/${CACHE_FOLDER}/${projectName}.json`)
+        cp.force(`coverage/coverage-final.json`, `${ROOT_PATH}/${CACHE_FOLDER}/${projectName}.json`)
       })
     })
 })

@@ -75,3 +75,67 @@ test.serial('should copy folder into other folder', (t) => {
       })
   })
 })
+
+test.serial('should not copy file to other exist file for default options', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'a/aa.json')
+
+    const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const oldContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, oldContent)
+
+    cp('a/aa.txt', 'a/aa.json')
+
+    const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, resultContent)
+  })
+})
+
+test.serial('should not copy file to other exist file', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'a/aa.json')
+
+    const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const oldContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, oldContent)
+
+    cp('a/aa.txt', 'a/aa.json', { force: false })
+
+    const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, resultContent)
+  })
+})
+
+test.serial('should force copy file to other file', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'a/aa.json')
+
+    const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const oldContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, oldContent)
+
+    cp('a/aa.txt', 'a/aa.json', { force: true })
+
+    const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    t.deepEqual(targetContent, resultContent)
+  })
+})
+
+test.serial('should force copy file to other file using force modifier', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'a/aa.json')
+
+    const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const oldContent = fs.readFileSync(resultPath, 'utf-8')
+    t.notDeepEqual(targetContent, oldContent)
+
+    cp.force('a/aa.txt', 'a/aa.json')
+
+    const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    t.deepEqual(targetContent, resultContent)
+  })
+})

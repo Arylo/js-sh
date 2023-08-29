@@ -1,13 +1,25 @@
 import fs from 'fs'
 import path from 'path'
 import { logger } from '@js-sh/utils'
+import { Store, getStore, run as storeRun } from '@js-sh/store'
 import { MoveNCopyPathStat } from '../consts'
 import { analysisSourceNTargetPath } from '../utils'
+
+interface ICopyOptions {
+  force: boolean,
+}
+const DEFAULT_COPY_OPTIONS: ICopyOptions = { force: false }
+
+const getCopyStore = () => getStore() as Store & { copyOptions: ICopyOptions }
 
 const copyFile = (sourcePath: string, targetPath: string) => {
   if (sourcePath === targetPath) return
   fs.mkdirSync(path.dirname(targetPath), { recursive: true })
-  fs.copyFileSync(sourcePath, targetPath)
+  if (!fs.existsSync(targetPath) || getCopyStore().copyOptions.force) {
+    fs.copyFileSync(sourcePath, targetPath)
+  } else {
+    logger.info(`${sourcePath} is existed, Skip`)
+  }
 }
 
 const copyFolder = (sourcePath: string, targetPath: string) => {
@@ -58,12 +70,34 @@ const run = (
   map[[source.stat, target.stat].join()]?.()
 }
 
-export const cp = (sourcePath: string | string[], targetPath: string) => {
-  const status = analysisSourceNTargetPath(sourcePath, targetPath)
-  const sources = Array.isArray(sourcePath) ? sourcePath : [sourcePath]
-  logger.info(`cp -Rf ${sources.join(' ')} ${targetPath}`)
+const cpBase = (
+  sourcePath: string | string[],
+  targetPath: string,
+  options?: Partial<ICopyOptions>,
+) => {
+  const opts = Object.assign({}, DEFAULT_COPY_OPTIONS, options)
+  storeRun<{ copyOptions: ICopyOptions }>({ copyOptions: opts }, () => {
+    const status = analysisSourceNTargetPath(sourcePath, targetPath)
+    const sources = Array.isArray(sourcePath) ? sourcePath : [sourcePath]
+    logger.info(`cp -R${opts.force ? ' -f' : ''} ${sources.join(' ')} ${targetPath}`)
 
-  status.sources.forEach((source) => {
-    run(source, status.target)
+    status.sources.forEach((source) => {
+      run(source, status.target)
+    })
   })
 }
+
+const modifiers = {
+  force(sourcePath: string | string[], targetPath: string) {
+    return cpBase(sourcePath, targetPath, { force: true })
+  },
+}
+
+type CP = typeof cpBase & typeof modifiers
+
+export const cp = new Proxy(cpBase, {
+  get(target, p) {
+    if (Object.keys(modifiers).includes(p as string)) return Reflect.get(modifiers, p)
+    return Reflect.get(target, p)
+  },
+}) as CP
