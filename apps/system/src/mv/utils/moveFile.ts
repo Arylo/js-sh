@@ -8,23 +8,28 @@ export const moveFile = (sourcePath: string, targetPath: string) => {
   if (fs.existsSync(targetPath) && !getMoveStore().moveOptions.force) {
     return false
   }
-  moveMap.rename(sourcePath, targetPath)
+  try {
+    moveMap.rename(sourcePath, targetPath)
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('EXDEV')) {
+      moveMap.copy(sourcePath, targetPath)
+    } else {
+      throw error
+    }
+  }
   return true
 }
 
 export const moveMap = {
   rename: (sourcePath: string, targetPath: string) => {
-    try {
-      return fs.renameSync(sourcePath, targetPath)
-    } catch (error) {
-      if (error instanceof Error && error.message.includes('EXDEV')) {
-        return moveMap.copy(sourcePath, targetPath)
-      }
-      throw error
-    }
+    fs.renameSync(sourcePath, targetPath)
   },
   copy: (sourcePath: string, targetPath: string) => {
+    const stat = fs.statSync(sourcePath)
     fs.copyFileSync(sourcePath, targetPath)
+    fs.chownSync(targetPath, stat.uid, stat.gid)
+    fs.chmodSync(targetPath, stat.mode)
+    fs.utimesSync(targetPath, stat.atimeMs, stat.mtimeMs)
     fs.unlinkSync(sourcePath)
   },
 }
