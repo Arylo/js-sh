@@ -1,5 +1,13 @@
 # @js-sh/core
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [1ec1714]
+  - @js-sh/store@0.0.3
+  - @js-sh/utils@0.0.3
+
 ## 0.0.5
 
 ### Patch Changes

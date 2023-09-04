@@ -1,5 +1,15 @@
 # @js-sh/system
 
+## 0.0.6
+
+### Patch Changes
+
+- 34b5780: feat(system): add modifiers for mv/cp methods
+- a78af10: fix(system): fixed move file fail across device
+- Updated dependencies [1ec1714]
+  - @js-sh/store@0.0.3
+  - @js-sh/utils@0.0.3
+
 ## 0.0.5
 
 ## 0.0.4

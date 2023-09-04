@@ -1,5 +1,15 @@
 # js-sh
 
+## 0.0.6
+
+### Patch Changes
+
+- 34b5780: feat(system): add modifiers for mv/cp methods
+- Updated dependencies [34b5780]
+- Updated dependencies [a78af10]
+  - @js-sh/system@0.0.6
+  - @js-sh/core@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes
