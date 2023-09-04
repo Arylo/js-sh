@@ -1,26 +1,13 @@
 import fs from 'fs'
 import path from 'path'
 import { logger } from '@js-sh/utils'
-import { Store, getStore, run as storeRun } from '@js-sh/store'
+import { run as storeRun } from '@js-sh/store'
 import { MoveNCopyPathStat } from '../consts'
 import { analysisSourceNTargetPath } from '../utils'
+import { IMoveOptions } from './type.d'
+import { moveFile } from './utils/moveFile'
 
-interface IMoveOptions {
-  force: boolean,
-}
 const DEFAULT_MOVE_OPTIONS: IMoveOptions = { force: false }
-
-const getMoveStore = () => getStore() as Store & { moveOptions: IMoveOptions }
-
-const moveFile = (sourcePath: string, targetPath: string) => {
-  if (sourcePath === targetPath) return false
-  fs.mkdirSync(path.dirname(targetPath), { recursive: true })
-  if (fs.existsSync(targetPath) && !getMoveStore().moveOptions.force) {
-    return false
-  }
-  fs.renameSync(sourcePath, targetPath)
-  return true
-}
 
 const moveFolder = (sourcePath: string, targetPath: string) => {
   if (sourcePath === targetPath) return false
