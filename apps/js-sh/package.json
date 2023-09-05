@@ -1,7 +1,7 @@
 {
   "name": "@js-sh/js-sh",
   "version": "0.0.6",
-  "description": "",
+  "description": "Using the bash command simply for Javascript/Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -14,7 +14,12 @@
     "test:watch": "ava --watch",
     "lint": "eslint --cache --ext=.ts ."
   },
-  "keywords": [],
+  "keywords": [
+    "shell",
+    "bash",
+    "sh",
+    "unix"
+  ],
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {

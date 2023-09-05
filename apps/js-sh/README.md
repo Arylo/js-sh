@@ -1,5 +1,7 @@
 # @js-sh/js-sh
 
+Using the bash command simply for Javascript/Typescript
+
 ## Install
 
 ```bash
@@ -24,7 +26,9 @@ ls('./apps/*/coverage/coverage-final.json')
   })
 ```
 
-## Functions
+<details>
+<summary><h2>Functions</h2></summary>
+
 
 ### $(command: string)
 
@@ -225,3 +229,5 @@ import { writeFile } from '@js-sh/js-sh'
 
 writeFile('foo.txt', '["Test"]', 'utf-8')
 ```
+
+</details>
