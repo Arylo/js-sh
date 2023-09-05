@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { rimrafSync } from 'rimraf'
 import { getMoveStore } from './store'
 
 export const moveFile = (sourcePath: string, targetPath: string) => {
@@ -30,6 +31,6 @@ export const moveMap = {
     fs.chownSync(targetPath, stat.uid, stat.gid)
     fs.chmodSync(targetPath, stat.mode)
     fs.utimesSync(targetPath, stat.atimeMs, stat.mtimeMs)
-    fs.unlinkSync(sourcePath)
+    rimrafSync(sourcePath)
   },
 }
