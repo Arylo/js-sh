@@ -1,24 +1,24 @@
 import childProcess from 'child_process'
 import { Store, getStore } from '@js-sh/store'
-import { logger } from '@js-sh/utils'
+import { startCommand } from '@js-sh/utils'
 import Chalk from 'chalk'
 
 function command(command: string) {
   const store = getStore()
   const [cmd, ...args] = command.split(/\s+/g)
-  logger.info(command)
+  const c = startCommand(command)
   const { stdout, stderr, output } = childProcess.spawnSync(cmd, args, {
     cwd: store.cwd,
     encoding: 'utf-8',
     stdio: 'pipe',
   })
-  return {
+  return c.appendResult({
     stdout,
     stderr,
     [Symbol.toStringTag]() {
       return output
     },
-  }
+  })
 }
 
 export const $ = new Proxy(command, {

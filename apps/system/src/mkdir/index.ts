@@ -1,15 +1,16 @@
 import fs from 'fs'
-import { parsePath, logger } from '@js-sh/utils'
+import { parsePath, startCommand } from '@js-sh/utils'
 
 export function mkdir(p: string) {
   const folderPath = parsePath(p)
+  const command = startCommand('mkdir -p', p)
 
   if (fs.existsSync(folderPath)) {
     if (fs.statSync(folderPath).isDirectory()) {
-      return
+      return command.appendResult(true)
     }
-    // TODO
+    return command.appendResult(false)
   }
-  logger.info(`mkdir -p ${p}`)
   fs.mkdirSync(folderPath, { recursive: true })
+  return command.appendResult(true)
 }

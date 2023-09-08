@@ -1,6 +1,6 @@
 import fs from 'fs'
 import { getStore } from '@js-sh/store'
-import { parsePath, logger } from '@js-sh/utils'
+import { parsePath, logger, startCommand } from '@js-sh/utils'
 
 export function cd(p: string) {
   const store = getStore()
@@ -11,6 +11,6 @@ export function cd(p: string) {
   if (!fs.statSync(nextPath).isDirectory()) {
     return logger.error(`${p} is not a directory`)
   }
-  logger.info(`cd ${p}`)
+  startCommand('cd', p)
   store.cwd = nextPath
 }

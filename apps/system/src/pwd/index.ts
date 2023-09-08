@@ -1,6 +1,8 @@
 import { getStore } from '@js-sh/store'
+import { startCommand } from '@js-sh/utils'
 
-export function pwd() {
+export function pwd(verbose = false) {
   const store = getStore()
-  return store.cwd
+  return startCommand(verbose ? 'pwd' : '')
+    .appendResult(store.cwd)
 }

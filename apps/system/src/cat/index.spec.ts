@@ -1,10 +1,12 @@
-import path from 'path'
 import { mockPathTest } from '@js-sh/test-utils'
 import { cat } from './index'
+import { run } from '@js-sh/store'
 
 const test = mockPathTest()
 
 test('should display file content', (t) => {
-  cat(path.resolve(t.context.testPath, 'a/aa/aaa/aaaa.txt'))
-  t.true(true)
+  run({ cwd: t.context.testPath }, () => {
+    cat('a/aa/aaa/aaaa.txt')
+    t.true(true)
+  })
 })

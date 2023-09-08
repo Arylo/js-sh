@@ -1,6 +1,6 @@
-import { logger } from '@js-sh/utils'
+import { startCommand } from '@js-sh/utils'
 
 export async function sleep(time: number) {
-  logger.info(`sleep ${time}`)
+  startCommand('sleep', time)
   return new Promise(resolve => setTimeout(resolve, time))
 }

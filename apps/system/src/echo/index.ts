@@ -1,3 +1,5 @@
+import { startCommand } from '@js-sh/utils'
+
 export function echo(...args: string[]) {
-  console.log(...args)
+  startCommand().appendResult(undefined, args)
 }

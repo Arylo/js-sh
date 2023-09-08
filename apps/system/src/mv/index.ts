@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { logger } from '@js-sh/utils'
+import { startCommand } from '@js-sh/utils'
 import { run as storeRun } from '@js-sh/store'
 import { MoveNCopyPathStat } from '../consts'
 import { analysisSourceNTargetPath } from '../utils'
@@ -29,7 +29,7 @@ const moveFolder = (sourcePath: string, targetPath: string) => {
   return isRemoveFolder
 }
 
-const run = (
+const mvAction = (
   source: ReturnType<typeof analysisSourceNTargetPath>['target'],
   target: ReturnType<typeof analysisSourceNTargetPath>['target'],
 ) => {
@@ -71,10 +71,10 @@ const mvBase = (
   storeRun<{ moveOptions: IMoveOptions }>({ moveOptions: opts }, () => {
     const status = analysisSourceNTargetPath(sourcePath, targetPath)
     const sources = Array.isArray(sourcePath) ? sourcePath : [sourcePath]
-    logger.info(`mv ${opts.force ? ' -f' : ''} ${sources.join(' ')} ${targetPath}`)
+    startCommand('mv', opts.force ? ' -f' : '', ...sources, targetPath)
 
     status.sources.forEach((source) => {
-      run(source, status.target)
+      mvAction(source, status.target)
     })
   })
 }

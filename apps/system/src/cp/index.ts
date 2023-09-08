@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { logger } from '@js-sh/utils'
+import { logger, startCommand } from '@js-sh/utils'
 import { Store, getStore, run as storeRun } from '@js-sh/store'
 import { MoveNCopyPathStat } from '../consts'
 import { analysisSourceNTargetPath } from '../utils'
@@ -79,7 +79,7 @@ const cpBase = (
   storeRun<{ copyOptions: ICopyOptions }>({ copyOptions: opts }, () => {
     const status = analysisSourceNTargetPath(sourcePath, targetPath)
     const sources = Array.isArray(sourcePath) ? sourcePath : [sourcePath]
-    logger.info(`cp -R${opts.force ? ' -f' : ''} ${sources.join(' ')} ${targetPath}`)
+    startCommand('cp -R', opts.force ? ' -f' : '', ...sources, targetPath)
 
     status.sources.forEach((source) => {
       run(source, status.target)

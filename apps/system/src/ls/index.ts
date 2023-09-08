@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { getStore } from '@js-sh/store'
-import { logger, notification, parseGlobPath } from '@js-sh/utils'
+import { parseGlobPath, startCommand } from '@js-sh/utils'
 
 const readDir = (p: string) => fs.readdirSync(p)
   .map(filename => path.resolve(p, filename))
@@ -9,7 +9,7 @@ const readDir = (p: string) => fs.readdirSync(p)
 
 export const ls = (...paths: string[]) => {
   const store = getStore()
-  logger.info(`ls ${paths.join(' ')}`)
+  const command = startCommand('ls', ...paths)
   const list = (paths.length ? paths : ['']).reduce<string[]>((list, p) => {
     const curPath = path.resolve(store.cwd, p)
     if (path.isAbsolute(curPath) && fs.existsSync(curPath)) {
@@ -31,9 +31,8 @@ export const ls = (...paths: string[]) => {
     }
     return list
   }, []).sort()
-  list.forEach((item) => {
-    const p = item.startsWith(store.cwd) ? item.replace(`${store.cwd}${path.sep}`, '') : item
-    notification(p)
-  })
-  return list
+  return command.appendResult(
+    list,
+    list.map(item => (item.startsWith(store.cwd) ? item.replace(`${store.cwd}${path.sep}`, '') : item)),
+  )
 }
