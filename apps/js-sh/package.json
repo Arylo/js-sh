@@ -1,6 +1,6 @@
 {
   "name": "@js-sh/js-sh",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Using the bash command simply for Javascript/Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,8 +23,8 @@
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@js-sh/core": "^0.0.6",
-    "@js-sh/system": "^0.0.6"
+    "@js-sh/core": "^0.1.0",
+    "@js-sh/system": "^0.1.0"
   },
   "devDependencies": {
     "ava": "^5.3.1",

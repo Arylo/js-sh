@@ -1,6 +1,6 @@
 {
   "name": "@js-sh/system",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,12 +19,12 @@
   "license": "MIT",
   "dependencies": {
     "@js-sh/store": "^0.0.3",
-    "@js-sh/utils": "^0.0.3",
+    "@js-sh/utils": "^0.1.0",
     "rimraf": "^5.0.1"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
-    "@js-sh/core": "^0.0.6",
+    "@js-sh/core": "^0.1.0",
     "@js-sh/test-utils": "^0.0.1",
     "ava": "^5.3.1",
     "c8": "^8.0.0",

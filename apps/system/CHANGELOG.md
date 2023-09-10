@@ -1,5 +1,17 @@
 # @js-sh/system
 
+## 0.1.0
+
+### Minor Changes
+
+- 436eb2f: feat: add common command output method
+
+### Patch Changes
+
+- cf1899f: fix(system): fixed move file without delete
+- Updated dependencies [436eb2f]
+  - @js-sh/utils@0.1.0
+
 ## 0.0.6
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.mjs",
   "private": true,
@@ -10,6 +10,6 @@
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@js-sh/js-sh": "^0.0.6"
+    "@js-sh/js-sh": "^0.1.0"
   }
 }
