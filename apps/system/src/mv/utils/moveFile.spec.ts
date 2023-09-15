@@ -1,8 +1,9 @@
 import fs from 'fs'
 import path from 'path'
+import sinon from 'sinon'
 import { run } from '@js-sh/store'
 import { mockPathTest } from '@js-sh/test-utils'
-import { moveMap } from './moveFile'
+import { moveFile, moveMap } from './moveFile'
 
 const test = mockPathTest()
 
@@ -39,5 +40,24 @@ test('using copy and delete method', (t) => {
     t.false(fs.existsSync(targetPath))
     t.true(fs.existsSync(resultPath))
     t.deepEqual(targetContent, resultContent)
+  })
+})
+
+test.beforeEach(() => {
+  sinon.restore()
+})
+
+test('should downgrade move using copy method', (t) => {
+  run({ cwd: t.context.testPath }, () => {
+    const targetPath = path.resolve(t.context.testPath, 'a/aa.txt')
+    const resultPath = path.resolve(t.context.testPath, 'abc.txt')
+
+    const rename = sinon.stub(moveMap, 'rename')
+    const copy = sinon.stub(moveMap, 'copy')
+
+    rename.throws(new Error('EXDEV'))
+
+    moveFile(targetPath, resultPath)
+    t.true(copy.called)
   })
 })
