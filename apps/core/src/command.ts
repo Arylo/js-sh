@@ -11,6 +11,10 @@ function command(command: string) {
     cwd: store.cwd,
     encoding: 'utf-8',
     stdio: 'pipe',
+    env: {
+      ...{ FORCE_COLOR: process.stdout.isTTY ? '1' : undefined },
+      ...process.env,
+    },
   })
   return c.appendResult({
     stdout,
