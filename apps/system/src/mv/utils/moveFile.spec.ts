@@ -33,13 +33,17 @@ test('using copy and delete method', (t) => {
     t.false(fs.existsSync(resultPath))
 
     const targetContent = fs.readFileSync(targetPath, 'utf-8')
+    const targetStat = fs.statSync(targetPath)
 
     moveMap.copy(targetPath, resultPath)
 
     const resultContent = fs.readFileSync(resultPath, 'utf-8')
+    const resultStat = fs.statSync(resultPath)
+
     t.false(fs.existsSync(targetPath))
     t.true(fs.existsSync(resultPath))
     t.deepEqual(targetContent, resultContent)
+    t.deepEqual(targetStat.mtime, resultStat.mtime)
   })
 })
 

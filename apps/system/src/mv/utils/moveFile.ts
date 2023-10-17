@@ -30,7 +30,7 @@ export const moveMap = {
     fs.copyFileSync(sourcePath, targetPath)
     fs.chownSync(targetPath, stat.uid, stat.gid)
     fs.chmodSync(targetPath, stat.mode)
-    fs.utimesSync(targetPath, stat.atimeMs, stat.mtimeMs)
+    fs.utimesSync(targetPath, stat.atime, stat.mtime)
     rimrafSync(sourcePath)
   },
 }
