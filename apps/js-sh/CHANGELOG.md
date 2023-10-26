@@ -1,5 +1,14 @@
 # js-sh
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [427c9a7]
+- Updated dependencies [d127d14]
+  - @js-sh/core@0.1.1
+  - @js-sh/system@0.1.1
+
 ## 0.1.0
 
 ### Patch Changes

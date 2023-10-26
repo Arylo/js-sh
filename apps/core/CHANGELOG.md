@@ -1,5 +1,11 @@
 # @js-sh/core
 
+## 0.1.1
+
+### Patch Changes
+
+- 427c9a7: fix(core): fixed the command output without color
+
 ## 0.1.0
 
 ### Minor Changes
